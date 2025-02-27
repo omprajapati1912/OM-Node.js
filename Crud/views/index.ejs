@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+
+</head>
+
+<body>
+    <%- include("./Header.html") %>
+
+        <div class="card-container">
+            
+            <% products.forEach(product=>{ %>
+                <div class="card">
+                    <img src="<%= product.image %>" alt="Product Image" class="card-img">
+                    <div class="card-content">
+                        <h2 class="card-title">
+                            <%= product.title %>
+                        </h2>
+                        <p class="card-price">
+                            <%= product.price %>
+                        </p>
+                        <p class="card-description">
+                            <%= product.description %>
+                        </p>
+                        <a href="/update/<%= product.id%>" class="card-btn">update data</a>
+                        <a href="/delete/<%= product.id%>" class="card-btn">delete data</a>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+</body>
+
+</html>
